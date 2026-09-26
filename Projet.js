@@ -1,4 +1,4 @@
-const prpmpt = require("prompt-sync")();
+const prompt = require("prompt-sync")();
 let candidats = [
     {
         cin: "AB123456",
@@ -113,3 +113,31 @@ let candidats = [
         electeurs: []
     }
 ];
+function ajouterCandidat() {
+    console.log("Ajouter un candidat");
+    let cin = prompt("CIN : ");
+    let nom = prompt("Nom : ");
+    let prenom = prompt("Prenom : ");
+    let parti = prompt("Partipolitique : ");
+    let age = Number(prompt("Age : "));
+    let existe = false;
+    for (let i = 0; i < candidats.length; i++) {
+        if (candidats[i].cin === cin) {
+            existe = true;
+        }
+    }
+    if (existe === true) {
+        console.log("Ce candidat existe deja.");
+    } else {
+        candidats [candidats.length] = {
+            cin: cin,
+            nom: nom,
+            prenom: prenom,
+            partiPolitique: parti,
+            age: age,
+            electeurs: []
+        };
+        console.log("Candidat ajoute avec succes.");
+    }
+}
+ajouterCandidat()
