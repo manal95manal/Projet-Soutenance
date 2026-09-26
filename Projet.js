@@ -173,3 +173,22 @@ function ajouterPlusieursCandidats() {
                     }
                 }
             }
+            ajouterPlusieursCandidats()
+function afficherCandidats() {
+    console.log("Liste des candidats");
+    if (candidats.length === 0) {
+        console.log("Aucun candidat.");
+    } else {
+        for (let i = 0; i < candidats.length; i++) {
+            console.log("Candidat " + (i + 1));
+            console.log("CIN : " + candidats[i].cin);
+            console.log("Nom : " + candidats[i].nom);
+            console.log("Prenom: " + candidats[i].prenom);
+            console.log("Parti: " + candidats[i].partiPolitique);
+            console.log("Age: " + candidats[i].age);
+            console.log("Nombre de votes: " + candidats[i].electeurs.length);
+            console.log(" ");
+        }
+    }
+}
+afficherCandidats()
