@@ -311,3 +311,24 @@ function supprimerCandidat() {
     }
 }
 supprimerCandidat()
+function rechercherCandidat() {
+    console.log("Rechercher un candidat");
+    let nomRecherche = prompt("Nom du candidat : ");
+    let trouve = false;
+    for (let i = 0; i < candidats.length; i++) {
+        if (candidats[i].nom.toLowerCase() === nomRecherche.toLowerCase()) {
+            console.log("Candidat trouve.");
+            console.log("CIN : " + candidats[i].cin);
+            console.log("Nom : " + candidats[i].nom);
+
+            console.log("Prenom : " + candidats[i].prenom);
+            console.log("Parti : " + candidats[i].partiPolitique);
+                        console.log("Age : " + candidats[i].age);
+                        trouve = true;
+        }
+    }
+if (trouve === false) {
+    console.log("Aucun candidat trouve.");
+    }
+}
+rechercherCandidat()
