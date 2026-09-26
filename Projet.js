@@ -258,3 +258,35 @@ function voter() {
     }
 }
 voter()
+function modifierCandidat() {
+    console.log("Modifier un candidat");
+    let cin = prompt("CIN du candidat : ");
+    let trouve = false;
+    let position = -1;
+    for (let i = 0; i < candidats.length; i++) {
+        if (candidats[i].cin === cin) {
+
+            trouve = true;
+            position = i;
+        }
+    }
+    if (trouve === false) {
+        console.log("Candidat introuvable.")
+    } else {
+        console.log("1.Modifier le parti");
+        console.log("2.Modifier l'age");
+        let choix = prompt("Votre choix : ");
+        if (choix === "1") {
+            let nouveauParti = prompt("Nouveau parti : ");
+            candidats[position].partiPolitique = nouveauParti;
+                     console.log("Parti modifie.");
+        } else if (choix === "2") {
+              let nouvelAge = Number(prompt("Nouvel age : "));
+         candidats[position].age = nouvelAge;
+            console.log("Age modifie.");
+    } else {
+        console.log("choix incorrect.");
+    }
+  }
+}
+modifierCandidat()
