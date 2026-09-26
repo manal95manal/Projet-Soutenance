@@ -141,3 +141,35 @@ function ajouterCandidat() {
     }
 }
 ajouterCandidat()
+function ajouterPlusieursCandidats() {
+    console.log("Ajouter plusieurs candidats");
+    let nombre = Number(prompt("Combien de candidats voulez-vous ajouter ?"));
+
+    for (let i = 0; i < nombre; i++) {
+        console.log("Candidat" + (i + 1));
+        let cin = prompt("CIN : ");
+        let nom = prompt("Nom : ");
+        let prenom = prompt("Prenom : ");
+        let parti = prompt("Parti politique : ");
+        let age = Number(prompt("Age : "));
+        let existe = false;
+        for (let j = 0; j < candidats.length; j++) {
+            if (candidats[j].cin === cin) {
+                existe = true;
+            }
+        }
+        if (existe === true) {
+            console.log("Ce candidat existe deja.");
+        } else {
+            candidats[candidats.length] = {
+                           cin: cin,
+                           nom: nom,
+                           prenom: prenom,
+                           partiPolitique: parti,
+                           age: age,
+                           electeurs: []
+                        };
+            console.log("Candidat ajoute.");
+                    }
+                }
+            }
