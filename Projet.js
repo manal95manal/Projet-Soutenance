@@ -290,3 +290,24 @@ function modifierCandidat() {
   }
 }
 modifierCandidat()
+function supprimerCandidat() {
+    console.log("Supprimer un candidat");
+    let cin = prompt("CIN du candidat : ");
+    let position = -1;
+    for (let i = 0; i < candidats.length; i++) {
+        if (candidats[i].cin === cin) {
+            position = i;
+        }
+    }
+    if (position === -1) {
+        console.log("Candidat introuvable.");
+    } else {
+        for (let i = position; i < candidats.length - 1; i++) {
+            candidats[i] = candidats[i + 1];
+        }
+            
+        candidats.length = candidats.length - 1;
+        console.log("Candidat supprime.");
+    }
+}
+supprimerCandidat()
