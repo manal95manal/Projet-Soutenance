@@ -224,3 +224,37 @@ function filtrerParParti() {
     }
 }
 filtrerParParti()
+function voter() {
+    console.log("Voter");
+    let cinElecteur = prompt("Votre CIN: ");
+    let dejaVote = false;
+    for (let i = 0; i < candidats.length; i++) {
+        for (let j = 0; j < candidats[i].electeurs.length; j++) {
+            if (candidats[i].electeurs[j] === cinElecteur) {
+                dejaVote = true;
+            }
+        }
+    }
+    if (dejaVote === true) {
+        console.log("Vous avez deja vote.");
+    } else {
+        let cinCandidat = prompt("CIN du candidat : ");
+        let trouve = false;
+        let position = -1;
+        for (let i = 0; i < candidats.length; i++) {
+            if (candidats[i].cin === cinCandidat) {
+                trouve = true;
+                position = i;
+            }
+        }
+        if (trouve === false) {
+            console.log("Candidat introuvable.");
+        } else {
+            let nombreElecteurs = candidats[position].electeurs.length;
+            candidats[position].electeurs.length;
+            candidats[position].electeurs[nombreElecteurs] = cinElecteur;
+            console.log("Votre vote a ete enregistre.");
+        }
+    }
+}
+voter()
