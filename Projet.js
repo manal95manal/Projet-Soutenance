@@ -192,3 +192,35 @@ function afficherCandidats() {
     }
 }
 afficherCandidats()
+function trierParVotes() {
+    console.log("Classement des Candidats");
+    for (let i = 0; i < candidats.length - 1; i++) {
+        for (let j = i + 1; j < candidats.length; j++) {
+            if (candidats[i].electeurs.length < candidats[j].electeurs.length) {
+                let temporaire = candidats[i];
+                candidats[i] = candidats[j];
+                candidats[j] = temporaire;
+            }
+        }
+    }
+    for (let i = 0; i < candidats.length; i++) {
+        console.log((i + 1) + " " + candidats[i].prenom + " " + candidats[i].nom + " " + candidats[i].electeurs.length + " vote(s)");
+    }
+}
+trierParVotes()
+function filtrerParParti() {
+    console.log("Recherche par parti : ");
+    let partiRecherche = prompt("Parti politique : ");
+    let trouve = false;
+    for (let i = 0; i < candidats.length; i++) {
+        if (candidats[i].partiPolitique.toLowerCase() === partiRecherche.toLowerCase()) {
+            console.log(candidats[i].prenom + " " + candidats[i].nom);
+
+                            trouve = true;
+        }
+    }
+    if (trouve === false) {
+        console.log("Aucun candidat trouve pour ce parti.");
+    }
+}
+filtrerParParti()
